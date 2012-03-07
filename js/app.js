@@ -7,14 +7,6 @@
       null, null, null
   ];
 
-  function resetState() {
-    state = [
-      null, null, null,
-      null, null, null,
-      null, null, null
-    ];
-  }
-
   var wins = [
     [1, 1, 1, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 1, 1, 1, 0, 0, 0],
@@ -26,8 +18,12 @@
     [0, 0, 1, 0, 1, 0, 1, 0, 0]
   ];
 
-  function update(idx, player) {
-    if (!state[idx]) state[idx] = player;
+  function resetState() {
+    state = [
+      null, null, null,
+      null, null, null,
+      null, null, null
+    ];
   }
 
   function drawLine(ctx, coords, color, width) {
