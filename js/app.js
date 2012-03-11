@@ -86,10 +86,9 @@
     }).length;
   }
 
-  function sameArray(a, b) {
-    if (a.length !== b.length) return false;
-    for (var i = 0, l = a.length; i < l; i++) {
-      if (a[i] !== b[i]) return false;
+  function isWin(win, letter) {
+    for (var i = 0, l = win.length; i < l; i++) {
+      if (win[i] === 1 && letter[i] !== 1) return false;
     }
     return true;
   }
@@ -98,10 +97,10 @@
     var game;
     var o = state.map(function(s) { return (s === 'O') ? 1 : 0; });
     var x = state.map(function(s) { return (s === 'X') ? 1 : 0; });
-    wins.forEach(function(w) {
-      if (sameArray(w, o)) {
+    wins.forEach(function(w, i) {
+      if (isWin(w, o)) {
 	game = {winner: 'O', win: w};
-      } else if (sameArray(w, x)) {
+      } else if (isWin(w, x)) {
 	game = {winner: 'X', win: w};
       }
     });
